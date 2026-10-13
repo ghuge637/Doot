@@ -9,7 +9,7 @@ A Windows desktop application for organizing job-application contacts and sendin
 
 **Latest version:** 0.0.1
 
-**[Download Doot for Windows](https://github.com/YOUR_USERNAME/doot/releases/latest/download/Doot_Setup.exe)**
+**[Download Doot for Windows](https://github.com/ghuge637/Doot/releases/latest/download/Doot_Setup.exe)**
 
 Replace `YOUR_USERNAME` with your GitHub username. This download link will work once you publish the release and attach the installer with the exact filename `Doot_Setup.exe`.
 
