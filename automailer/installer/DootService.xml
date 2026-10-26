@@ -1,0 +1,18 @@
+<service>
+  <id>DootService</id>
+  <name>Doot</name>
+  <description>Doot automated job application and cold email dispatcher.</description>
+  <executable>%BASE%\runtime\bin\java.exe</executable>
+  <arguments>-Xrs -jar "%BASE%\doot.jar" --server.port=8080</arguments>
+  <workingdirectory>%BASE%</workingdirectory>
+  <logpath>%BASE%\logs</logpath>
+  <log mode="roll-by-size-time">
+    <sizeThreshold>10485760</sizeThreshold>
+    <pattern>yyyyMMdd</pattern>
+    <autoRollAtTime>00:00:00</autoRollAtTime>
+  </log>
+  <onfailure action="restart" delay="10 sec" />
+  <startmode>Automatic</startmode>
+  <stoptimeout>15 sec</stoptimeout>
+  <hidewindow>true</hidewindow>
+</service>

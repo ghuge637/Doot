@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Obsidian & Zinc Palette with Doot's warm citrus accents */
+  --bg-page: #08090e;
+  --bg-surface: rgba(15, 17, 26, 0.75);
+  --bg-elevated: rgba(22, 26, 38, 0.85);
+  --bg-subtle: rgba(28, 33, 48, 0.9);
+  --bg-hover: rgba(35, 41, 60, 0.95);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.16);
+  --border-active: rgba(249, 115, 22, 0.5);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-subtle: #475569;
+
+  /* Brand accents inspired by the Doot logo */
+  --accent-brand: #f97316;
+  --accent-brand-hover: #ea580c;
+  --accent-brand-glow: rgba(249, 115, 22, 0.25);
+  --accent-brand-subtle: rgba(249, 115, 22, 0.12);
+
+  --emerald: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.3);
+  --emerald-subtle: rgba(16, 185, 129, 0.1);
+  --emerald-border: rgba(16, 185, 129, 0.25);
+
+  --warm: #f59e0b;
+  --warm-glow: rgba(245, 158, 11, 0.3);
+  --warm-subtle: rgba(245, 158, 11, 0.1);
+
+  --amber: #f59e0b;
+  --amber-subtle: rgba(245, 158, 11, 0.1);
+  --amber-border: rgba(245, 158, 11, 0.25);
+
+  --rose: #ef4444;
+  --rose-subtle: rgba(239, 68, 68, 0.1);
+  --rose-border: rgba(239, 68, 68, 0.25);
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 50% -10%, rgba(249, 115, 22, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: auto, auto, auto, 28px 28px;
+  background-position: center, center, center, 0 0;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Glassmorphism Card Surface */
+.glass-panel {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-hover);
+}
+
+/* Doot brand mark */
+.brand-logo-shell {
+  width: 38px;
+  height: 38px;
+  padding: 3px;
+  border-radius: 11px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 18px rgba(249, 115, 22, 0.3), 0 4px 12px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.app-footer {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 24px 28px 30px;
+  color: var(--text-secondary);
+}
+
+.app-footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid rgba(249, 115, 22, 0.22);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, rgba(249, 115, 22, 0.08), rgba(245, 158, 11, 0.06));
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-align: center;
+}
+
+.app-footer-cta strong {
+  color: #fed7aa;
+  font-weight: 700;
+}
+
+.app-footer-email {
+  color: #fb923c;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app-footer-email:hover {
+  color: #fbbf24;
+  text-decoration: underline;
+}
+
+.app-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 4px 0;
+  font-size: 11px;
+}
+
+.app-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app-footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.app-footer-links a:hover {
+  color: #fb923c;
+  transform: translateY(-1px);
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Elite Action Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  min-height: 38px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  white-space: nowrap;
+  outline: none;
+  position: relative;
+  touch-action: manipulation;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: #09090b;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.btn-primary:hover:not(:disabled) {
+  background: #f1f5f9;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(249, 115, 22, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.btn-accent:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+}
+
+.btn-secondary {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-subtle);
+  border-color: var(--border-hover);
+  color: #ffffff;
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid var(--rose-border);
+}
+.btn-danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+.btn-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid var(--emerald-border);
+}
+.btn-success:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: #10b981;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Inputs & Form Elements */
+.input, .textarea, .select {
+  width: 100%;
+  padding: 10px 14px;
+  min-height: 40px;
+  background: rgba(11, 13, 20, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.input:focus, .textarea:focus, .select:focus {
+  border-color: var(--accent-brand);
+  background: rgba(15, 18, 28, 0.9);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+.input::placeholder, .textarea::placeholder {
+  color: var(--text-subtle);
+}
+
+.textarea {
+  line-height: 1.6;
+  resize: vertical;
+}
+
+/* Pill Badges */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.pill-neutral {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.pill-brand {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fed7aa;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.pill-success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid var(--emerald-border);
+}
+
+.pill-warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid var(--amber-border);
+}
+
+.pill-danger {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid var(--rose-border);
+}
+
+/* Telemetry Status Dots */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.status-dot-active {
+  background: var(--emerald);
+  box-shadow: 0 0 10px var(--emerald);
+}
+
+.status-dot-pulsing::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--emerald);
+  animation: pulseOrb 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulseOrb {
+  0% { transform: scale(0.8); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+/* Tablet & Mobile Screens (<= 860px) */
+@media (max-width: 860px) {
+  .show-on-mobile {
+    display: block !important;
+  }
+
+  .workspace-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .main-container {
+    padding: 16px 14px !important;
+    gap: 16px !important;
+  }
+
+  .glass-panel {
+    padding: 18px 14px !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .bento-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .delay-sliders-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Modals on mobile become bottom-sheet style */
+  .modal-dialog {
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: 92vh !important;
+    margin: 0 !important;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+  }
+
+  .modal-overlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+}
+
+/* Small Smartphone Screens (<= 480px) */
+@media (max-width: 480px) {
+  .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .pill {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .app-footer {
+    padding: 18px 14px 24px;
+  }
+
+  .app-footer-cta {
+    flex-direction: column;
+    gap: 2px;
+    padding: 15px 14px;
+  }
+
+  .app-footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Touch-friendly horizontal table scroll */
+.table-scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
